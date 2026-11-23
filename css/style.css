@@ -1,0 +1,51 @@
+:root{--bg:#1c1e22;--card:#2a2d33;--tx:#eceef2;--mut:#9aa0ab;--ac:#6fb1ff;--cols:3}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,Roboto,sans-serif}
+button{font:inherit;color:inherit;background:none;border:0;padding:10px;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--ac)}
+header{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;gap:4px;padding:env(safe-area-inset-top) 8px 0;height:calc(56px + env(safe-area-inset-top));background:var(--bg)}
+header h1{flex:1;margin:0 0 0 8px;font-size:26px;font-weight:600;letter-spacing:-.3px}
+header button{font-size:22px}
+#back{font-size:32px;line-height:1}
+#main{position:absolute;inset:calc(56px + env(safe-area-inset-top)) 0 calc(60px + env(safe-area-inset-bottom)) 0;overflow-y:auto;touch-action:pan-y}
+#sbar{position:fixed;z-index:4;top:calc(56px + env(safe-area-inset-top));left:12px;right:12px;height:42px;border:0;border-radius:21px;padding:0 16px;background:var(--card);color:var(--tx);font:inherit}
+#sbar:not([hidden])+#main{top:calc(106px + env(safe-area-inset-top))}
+#banner{position:fixed;z-index:4;top:calc(56px + env(safe-area-inset-top));left:12px;right:12px;display:flex;align-items:center;justify-content:space-between;background:var(--card);border-radius:12px;padding:4px 8px 4px 14px}
+#banner button{color:var(--ac);font-weight:600}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:5;display:flex;height:calc(60px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:#25282d}
+nav button{flex:1;color:var(--mut);font-size:14px}
+nav button.on{color:var(--tx);font-weight:600;box-shadow:inset 0 3px 0 var(--ac)}
+.day{padding:14px 14px 6px;font-size:14px;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(var(--cols),1fr);gap:2px}
+.c{position:relative;aspect-ratio:1;background:var(--card);overflow:hidden}
+.c img,.c video{width:100%;height:100%;object-fit:cover;display:block}
+.c .pl{position:absolute;right:6px;bottom:4px;font-size:12px;text-shadow:0 0 4px #000}
+.albums{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px}
+.al{text-align:left;padding:0}
+.al .c{border-radius:16px;aspect-ratio:1}
+.al b{display:block;margin:6px 4px 0;font-weight:600}
+.al small{margin-left:4px;color:var(--mut)}
+.empty{padding:60px 30px;text-align:center;color:var(--mut)}
+.gate{position:fixed;inset:0;z-index:20;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;gap:12px}
+.gate .logo{font-size:64px;color:var(--ac)}
+.gate h2{margin:0;font-size:24px}
+.gate p{margin:0 0 12px;color:var(--mut);max-width:34ch}
+.primary{background:var(--ac);color:#0b1a2b;border-radius:22px;padding:11px 24px;font-weight:600}
+.ghost{color:var(--ac)}
+#viewer,#editor{position:fixed;inset:0;z-index:30;background:#000;display:flex;flex-direction:column}
+.vtop{display:flex;align-items:center;gap:8px;padding:calc(env(safe-area-inset-top) + 6px) 8px 6px}
+.vtop span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--mut);font-size:14px}
+.vtop button{font-size:28px;line-height:1}
+.vtop .primary{font-size:15px;padding:8px 18px}
+#vbody{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;touch-action:pan-y pinch-zoom}
+#vbody img,#vbody video{max-width:100%;max-height:100%}
+.vbot{display:flex;justify-content:space-around;padding:6px 0 calc(env(safe-area-inset-bottom) + 8px)}
+.vbot button{display:flex;flex-direction:column;align-items:center;font-size:22px}
+.vbot small{font-size:12px;color:var(--mut)}
+#editor canvas{flex:1;min-height:0;width:100%;object-fit:contain}
+.presets{display:flex;gap:8px;padding:8px 12px;overflow-x:auto}
+.presets button{background:var(--card);border-radius:16px;padding:6px 16px;white-space:nowrap}
+.presets button.on{background:var(--ac);color:#0b1a2b}
+.sliders{padding:4px 16px calc(env(safe-area-inset-bottom) + 12px)}
+.sliders label{display:grid;grid-template-columns:90px 1fr;align-items:center;font-size:14px;color:var(--mut)}
