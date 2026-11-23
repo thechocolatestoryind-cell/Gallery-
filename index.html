@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="hi"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1c1e22">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>Gallery</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<header>
+  <button id="back" hidden aria-label="Back">‹</button>
+  <h1 id="title">Pictures</h1>
+  <button id="add" aria-label="Folder add karo">＋</button>
+  <button id="trashBtn" aria-label="Trash">🗑</button>
+</header>
+<div id="banner" hidden><span>Folder access dobara chahiye</span><button id="regrant">Allow</button></div>
+<input id="sbar" type="search" placeholder="Search: screenshot, camera, video, 2026…" hidden>
+<main id="main"></main>
+
+<section id="gate" class="gate">
+  <div class="logo">▦</div>
+  <h2>Gallery ko storage access chahiye</h2>
+  <p>Apne photo folder (jaise DCIM ya Pictures) choose karo. Allow karte hi saari photos aur videos yahan dikhne lagengi. Files phone se bahar kahin nahi jaati.</p>
+  <button id="grant" class="primary">Storage access do</button>
+  <button id="install" class="ghost" hidden>App install karo</button>
+</section>
+
+<nav id="tabs">
+  <button data-tab="pictures" class="on">Pictures</button>
+  <button data-tab="albums">Albums</button>
+  <button data-tab="search">Search</button>
+</nav>
+
+<div id="viewer" hidden>
+  <div class="vtop"><button id="vclose">‹</button><span id="vname"></span></div>
+  <div id="vbody"></div>
+  <div class="vbot">
+    <button id="vedit">✎<small>Edit</small></button>
+    <button id="vshare">⤴<small>Share</small></button>
+    <button id="vtrash">🗑<small>Trash</small></button>
+    <button id="vinfo">ⓘ<small>Info</small></button>
+  </div>
+</div>
+
+<div id="editor" hidden>
+  <div class="vtop"><button id="eclose">✕</button><span>Edit</span><button id="esave" class="primary">Save</button></div>
+  <canvas id="cv"></canvas>
+  <div class="presets" id="presets"></div>
+  <div class="sliders">
+    <label>Brightness<input type="range" id="eb" min="50" max="150" value="100"></label>
+    <label>Contrast<input type="range" id="ec" min="50" max="150" value="100"></label>
+    <label>Saturation<input type="range" id="es" min="0" max="200" value="100"></label>
+  </div>
+</div>
+<input id="fin" type="file" accept="image/*,video/*" multiple hidden>
+<script src="js/db.js"></script>
+<script src="js/app.js"></script>
+</body></html>
